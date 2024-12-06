@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerMove - Salle de Sport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Ajout d'une animation personnalisée */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .slide-down {
+            animation: slideDown 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-green-500 via-green-400 to-green-300 text-white">
+
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">PowerMove</a>
+            <ul class="hidden md:flex space-x-6 text-lg">
+                <li><a href="#home" class="hover:text-blue-300">Accueil</a></li>
+                <li><a href="#services" class="hover:text-blue-300">Activités</a></li>
+                <li><a href="#about" class="hover:text-blue-300">À propos</a></li>
+                <li><a href="#contact" class="hover:text-blue-300">Contact</a></li>
+            </ul>
+            <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">
+                ☰
+            </button>
+        </nav>
+        <div id="mobileMenu" class="hidden bg-blue-600 text-white slide-down md:hidden">
+            <ul class="space-y-4 text-center p-4">
+                <li><a href="#home" class="block">Accueil</a></li>
+                <li><a href="#services" class="block">Activités</a></li>
+                <li><a href="#about" class="block">À propos</a></li>
+                <li><a href="#contact" class="block">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <section id="home" class="bg-cover bg-center h-screen flex items-center justify-center"
+        style="background-image: url('https://source.unsplash.com/1600x900/?gym');">
+        <div class="text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Bienvenue chez PowerMove</h1>
+            <p class="text-lg md:text-2xl mb-8">Votre partenaire fitness pour atteindre vos objectifs.</p>
+            <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">Découvrir
+                nos activités</a>
+        </div>
+    </section>
+
+
+    <section id="services" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Nos Activités</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-4">Cours de Yoga</h3>
+                    <p class="text-gray-600">Détendez-vous et améliorez votre souplesse avec nos cours adaptés à tous
+                        les niveaux.</p>
+                </div>
+                <div class="p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-4">Entraînement de Force</h3>
+                    <p class="text-gray-600">Développez votre force avec nos équipements modernes et nos coachs
+                        expérimentés.</p>
+                </div>
+                <div class="p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-4">Cardio Training</h3>
+                    <p class="text-gray-600">Améliorez votre endurance et brûlez des calories avec nos programmes
+                        intensifs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">À propos de PowerMove</h2>
+            <p class="text-lg text-gray-700">Chez PowerMove, nous croyons que chaque individu mérite une chance
+                d'atteindre ses objectifs de santé et de bien-être. Rejoignez-nous et découvrez une ambiance motivante
+                et une communauté engagée.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Contactez-nous</h2>
+            <form class="max-w-xl mx-auto">
+                <div class="mb-4">
+                    <input type="text" placeholder="Nom" class="w-full border-gray-300 rounded p-3">
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Email" class="w-full border-gray-300 rounded p-3">
+                </div>
+                <div class="mb-4">
+                    <textarea placeholder="Message" rows="5" class="w-full border-gray-300 rounded p-3"></textarea>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2024 PowerMove. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
+
+
+</body>
+
+</html>
