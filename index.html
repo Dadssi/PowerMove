@@ -4,9 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
     <title>PowerMove - Salle de Sport</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        #bienvenue{
+            font-family: "Monoton";
+            /* color: #dd00ff; */
+        }
+        #bienvenue span{
+            font-family: "Bungee Shade";
+            /* font-size: 5rem; */
+            /* line-height: 5rem; */
+            /* font-weight: bold; */
+            color: #d50ef4; /* Couleur principale du néon */
+        body{
+            background-image: radial-gradient(circle, #f903ce, #f524cb, #f234c7, #ee3fc4, #ea49c1, #e347bb, #dc46b6, #d544b0, #c938a6, #bd2b9c, #b11c93, #a50489);
+        }
         /* Ajout d'une animation personnalisée */
         @keyframes slideDown {
             from {
@@ -24,8 +42,8 @@
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
-    <header class="bg-gradient-to-r from-green-500 via-green-400 to-green-300 text-white">
+<body class="text-gray-800">
+    <header class="bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl">
 
         <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold">PowerMove</a>
@@ -39,46 +57,67 @@
                 ☰
             </button>
         </nav>
-        <div id="mobileMenu" class="hidden bg-blue-600 text-white slide-down md:hidden">
+        <div id="mobileMenu" class="hidden bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl text-white slide-down md:hidden">
             <ul class="space-y-4 text-center p-4">
-                <li><a href="#home" class="block">Accueil</a></li>
-                <li><a href="#services" class="block">Activités</a></li>
-                <li><a href="#about" class="block">À propos</a></li>
-                <li><a href="#contact" class="block">Contact</a></li>
+                <li><a href="#home" class="block hover:bg-purple-900">Accueil</a></li>
+                <li><a href="#services" class="block hover:bg-purple-900">Activités</a></li>
+                <li><a href="#about" class="block hover:bg-purple-900">À propos</a></li>
+                <li><a href="#contact" class="block hover:bg-purple-900">Contact</a></li>
             </ul>
         </div>
     </header>
 
 
     <section id="home" class="bg-cover bg-center h-screen flex items-center justify-center"
-        style="background-image: url('https://source.unsplash.com/1600x900/?gym');">
-        <div class="text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Bienvenue chez PowerMove</h1>
-            <p class="text-lg md:text-2xl mb-8">Votre partenaire fitness pour atteindre vos objectifs.</p>
-            <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">Découvrir
+        style="background-image: url('https://img.freepik.com/photos-premium/salle-gym-lumiere-mur-tapis-roulant_808092-1997.jpg?w=1060');">
+        <div class="w-full text-center items-center">
+            <div class="w-full h-full bg-black opacity-75 p-10">
+                <h1 class="text-4xl md:text-6xl mb-6 text-purple-200" id="bienvenue">Bienvenue chez <span>PowerMove</span></h1>
+                <p class="text-2xl font-bold text-white md:text-2xl mb-8">Votre partenaire fitness pour atteindre vos objectifs 💪💪.</p>
+                <a href="#services" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded">Découvrir
                 nos activités</a>
+            </div>
+           
+            
         </div>
     </section>
 
 
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">Nos Activités</h2>
+            <h2 class="text-3xl font-bold mb-8 text-purple-900">Nos Activités</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-xl font-semibold mb-4">Cours de Yoga</h3>
-                    <p class="text-gray-600">Détendez-vous et améliorez votre souplesse avec nos cours adaptés à tous
-                        les niveaux.</p>
+                <div class="relative group p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 bg-purple-300">
+                    <img src="images/yoga.png" alt="yoga-corses" class="w-full rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 mt-4 text-purple-700">Cours de Yoga</h3>
+                    <p class="text-gray-600">Détendez-vous et améliorez votre souplesse avec nos cours adaptés à tous les niveaux.</p>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                        <a href="#details" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
+                            Voir détails
+                        </a>
+                    </div>
                 </div>
-                <div class="p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-xl font-semibold mb-4">Entraînement de Force</h3>
+                <div class="relative group p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 bg-purple-300">
+                    <img src="images/workout.png" alt="workout">
+                    <h3 class="text-xl font-semibold mb-4 mt-4 text-purple-700">Entraînement de Force</h3>
                     <p class="text-gray-600">Développez votre force avec nos équipements modernes et nos coachs
                         expérimentés.</p>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                        <a href="#details" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
+                            Voir détails
+                        </a>
+                    </div>
                 </div>
-                <div class="p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-xl font-semibold mb-4">Cardio Training</h3>
+                <div class="relative group p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 bg-purple-300">
+                    <img src="images/cardio.png" alt="cardio">
+                    <h3 class="text-xl font-semibold mb-4 mt-4 text-purple-700">Cardio Training</h3>
                     <p class="text-gray-600">Améliorez votre endurance et brûlez des calories avec nos programmes
                         intensifs.</p>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                        <a href="#details" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
+                            Voir détails
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,32 +125,45 @@
 
     <section id="about" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">À propos de PowerMove</h2>
-            <p class="text-lg text-gray-700">Chez PowerMove, nous croyons que chaque individu mérite une chance
+            <h2 class="text-3xl font-bold mb-8 text-purple-900">À propos de PowerMove</h2>
+            <p class="text-lg text-gray-700">Chez <span class="text-purple-900 font-bold">PowerMove</span>, nous croyons que chaque individu mérite une chance
                 d'atteindre ses objectifs de santé et de bien-être. Rejoignez-nous et découvrez une ambiance motivante
                 et une communauté engagée.</p>
         </div>
     </section>
 
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-purple-200">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">Contactez-nous</h2>
+            <h2 class="text-3xl font-bold mb-8 text-purple-900">Réservez une activité</h2>
             <form class="max-w-xl mx-auto">
                 <div class="mb-4">
-                    <input type="text" placeholder="Nom" class="w-full border-gray-300 rounded p-3">
+                    <label for="nom"></label>
+                    <input id="nom" name="nom" type="text" placeholder="Nom" class="w-full border-purple-300  focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
                 </div>
                 <div class="mb-4">
-                    <input type="email" placeholder="Email" class="w-full border-gray-300 rounded p-3">
+                    <label for="prenom"></label>
+                    <input id="prenom" name="prenom" type="text" placeholder="Prenom" class="w-full border-purple-300  focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
                 </div>
                 <div class="mb-4">
-                    <textarea placeholder="Message" rows="5" class="w-full border-gray-300 rounded p-3"></textarea>
+                    <label for="email"></label>
+                    <input id="email" name="email" type="email" placeholder="Email" class="w-full border-purple-300  focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
                 </div>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">Envoyer</button>
+                <div class="mb-4">
+                    <label for="telephone"></label>
+                    <input id="telephone" name="telephone" type="number" placeholder="N° de téléphone" class="w-full border-purple-300  focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
+                </div>
+                <div class="mb-4">
+                    <label for="activite"></label>
+                    <select id="activite" name="activite" class="w-full border-purple-300  focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
+                        <option value="" selected>Veuillez choisir une activité</option>
+                    </select>
+                </div>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded">Envoyer</button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-blue-600 text-white py-6">
+    <footer class="bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl py-6">
         <div class="max-w-7xl mx-auto text-center">
             <p>&copy; 2024 PowerMove. Tous droits réservés.</p>
         </div>
@@ -126,11 +178,6 @@
             mobileMenu.classList.toggle('hidden');
         });
     </script>
-</body>
-
-</html>
-
-
 </body>
 
 </html>
