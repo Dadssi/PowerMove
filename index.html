@@ -14,18 +14,14 @@
     <style>
         #bienvenue{
             font-family: "Monoton";
-            /* color: #dd00ff; */
         }
         #bienvenue span{
             font-family: "Bungee Shade";
-            /* font-size: 5rem; */
-            /* line-height: 5rem; */
-            /* font-weight: bold; */
-            color: #d50ef4; /* Couleur principale du néon */
+            color: #d50ef4;
+        }
         body{
             background-image: radial-gradient(circle, #f903ce, #f524cb, #f234c7, #ee3fc4, #ea49c1, #e347bb, #dc46b6, #d544b0, #c938a6, #bd2b9c, #b11c93, #a50489);
         }
-        /* Ajout d'une animation personnalisée */
         @keyframes slideDown {
             from {
                 transform: translateY(-100%);
@@ -51,7 +47,7 @@
                 <li><a href="#home" class="hover:text-blue-300">Accueil</a></li>
                 <li><a href="#services" class="hover:text-blue-300">Activités</a></li>
                 <li><a href="#about" class="hover:text-blue-300">À propos</a></li>
-                <li><a href="#reservation" class="hover:text-blue-300">Contact</a></li>
+                <li><a href="#reservation" class="hover:text-blue-300">Réservation</a></li>
             </ul>
             <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">
                 ☰
@@ -62,11 +58,10 @@
                 <li><a href="#home" class="block hover:bg-purple-900">Accueil</a></li>
                 <li><a href="#services" class="block hover:bg-purple-900">Activités</a></li>
                 <li><a href="#about" class="block hover:bg-purple-900">À propos</a></li>
-                <li><a href="#contact" class="block hover:bg-purple-900">Contact</a></li>
+                <li><a href="#contact" class="block hover:bg-purple-900">Réservation</a></li>
             </ul>
         </div>
     </header>
-
 
     <section id="home" class="bg-cover bg-center h-screen flex items-center justify-center"
         style="background-image: url('https://img.freepik.com/photos-premium/salle-gym-lumiere-mur-tapis-roulant_808092-1997.jpg?w=1060');">
@@ -77,11 +72,8 @@
                 <a href="#services" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded">Découvrir
                 nos activités</a>
             </div>
-           
-            
         </div>
     </section>
-
 
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -92,7 +84,7 @@
                     <h3 class="text-xl font-semibold mb-4 mt-4 text-purple-700">Cours de Yoga</h3>
                     <p class="text-gray-600">Détendez-vous et améliorez votre souplesse avec nos cours adaptés à tous les niveaux.</p>
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                        <a href="#details" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
+                        <a id="yoga-btn" onclick="afficherYoga()" href="#activite-yoga"  class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
                             Voir détails
                         </a>
                     </div>
@@ -103,7 +95,7 @@
                     <p class="text-gray-600">Développez votre force avec nos équipements modernes et nos coachs
                         expérimentés.</p>
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                        <a href="#details" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
+                        <a id="workout-btn" href="#activite-workout" onclick="afficherWorkout()" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
                             Voir détails
                         </a>
                     </div>
@@ -114,7 +106,7 @@
                     <p class="text-gray-600">Améliorez votre endurance et brûlez des calories avec nos programmes
                         intensifs.</p>
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                        <a href="#details" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
+                        <a id="cardio-btn" href="#activite-cardio" onclick="afficherCardio()" class="bg-white text-purple-700 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-purple-700 hover:text-white transition-colors">
                             Voir détails
                         </a>
                     </div>
@@ -124,15 +116,12 @@
     </section>
     <!-- ---------------------------------------------------------------- -->
     <div class="space-y-8 md:w-1/2 md:mx-auto">
-        <!-- Activité 1 -->
-        <div id="activity-1" class="md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
+        <div id="activite-yoga" class="hidden md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
           <h2 class="text-2xl text-white py-4 font-bold bg-purple-700 mb-6 text-center rounded">Séance de YOGA (Collectif)</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <!-- Description -->
             <div class="space-y-4">
               <p><strong>Nom de l'activité :</strong> Yoga pour débutants</p>
               <p><strong>Description de l'activité :</strong> Une séance relaxante pour améliorer votre bien-être.</p>
-              <p><strong>Date de l'activité :</strong> 15 juin 2024</p>
               <p><strong>Capacité de l'activité :</strong> 20 participants</p>
               <p><strong>Date de début :</strong> 15 juin 2024</p>
               <p><strong>Date de fin :</strong> 15 juin 2024</p>
@@ -141,22 +130,17 @@
                 Réserver une place
               </a>
             </div>
-            <!-- Image -->
             <div class="">
               <img src="images/yoga.png" alt="Description de l'activité" class="rounded-lg shadow-lg">
             </div>
           </div>
         </div>
-      
-        <!-- Activité 2 -->
-        <div id="activity-2" class="md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
+        <div id="activite-workout" class="hidden md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
           <h2 class="text-2xl text-white py-4 font-bold bg-purple-700 mb-6 text-center rounded">Séance d'entrainnement de forces (Collectif)</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <!-- Description -->
             <div class="space-y-4">
               <p><strong>Nom de l'activité :</strong> Cours de danse</p>
               <p><strong>Description de l'activité :</strong> Découvrez les bases de la danse contemporaine.</p>
-              <p><strong>Date de l'activité :</strong> 20 juin 2024</p>
               <p><strong>Capacité de l'activité :</strong> 15 participants</p>
               <p><strong>Date de début :</strong> 20 juin 2024</p>
               <p><strong>Date de fin :</strong> 20 juin 2024</p>
@@ -165,22 +149,17 @@
                 Réserver une place
               </a>
             </div>
-            <!-- Image -->
             <div>
               <img src="images/workout.png" alt="Description de l'activité" class="rounded-lg shadow-lg">
             </div>
           </div>
         </div>
-      
-        <!-- Activité 3 -->
-        <div id="activity-3" class="md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
+        <div id="activite-cardio" class="hidden md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
           <h2 class="text-2xl text-white py-4 font-bold bg-purple-700 mb-6 text-center rounded">Séance de Cardio (Collectif)</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <!-- Description -->
             <div class="space-y-4">
-              <p><strong>Nom de l'activité :</strong> Atelier de cuisine</p>
-              <p><strong>Description de l'activité :</strong> Apprenez à cuisiner des plats savoureux.</p>
-              <p><strong>Date de l'activité :</strong> 25 juin 2024</p>
+              <p><strong>Nom de l'activité :</strong> Activité de Cardio</p>
+              <p><strong>Description de l'activité :</strong> Restez en forme avec les séances de Cardio adaptées à tous les niveaux.</p>
               <p><strong>Capacité de l'activité :</strong> 10 participants</p>
               <p><strong>Date de début :</strong> 25 juin 2024</p>
               <p><strong>Date de fin :</strong> 25 juin 2024</p>
@@ -189,16 +168,13 @@
                 Réserver une place
               </a>
             </div>
-            <!-- Image -->
             <div>
               <img src="images/cardio.png" alt="Description de l'activité" class="rounded-lg shadow-lg">
             </div>
           </div>
         </div>
       </div>
-      
     <!-- ---------------------------------------------------------------- -->
-
     <section id="about" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-8 text-purple-900">À propos de PowerMove</h2>
@@ -234,7 +210,7 @@
                         <option value="" selected>Veuillez choisir une activité</option>
                     </select>
                 </div>
-                <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded">Envoyer</button>
+                <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded">Envoyer</button>
             </form>
         </div>
     </section>
@@ -256,9 +232,29 @@
         document.getElementById('telephone').addEventListener('keypress', function (e) {
             const char = String.fromCharCode(e.keyCode);
                 if (!/[0-9]/.test(char)) {
-            e.preventDefault(); // Bloque la saisie si ce n'est pas un chiffre
+            e.preventDefault();
             }
         });
+
+        let yogaActivity = document.getElementById("activite-yoga");
+        let workoutActivity = document.getElementById("activite-workout");
+        let cardioActivity = document.getElementById("activite-cardio");
+
+        function afficherYoga(){
+                yogaActivity.classList.remove("hidden");
+                workoutActivity.classList.add("hidden");
+                cardioActivity.classList.add("hidden");
+        };
+        function afficherWorkout(){
+                yogaActivity.classList.add("hidden");
+                workoutActivity.classList.remove("hidden");
+                cardioActivity.classList.add("hidden");
+        };
+        function afficherCardio(){
+                yogaActivity.classList.add("hidden");
+                workoutActivity.classList.add("hidden");
+                cardioActivity.classList.remove("hidden");
+        };
     </script>
 </body>
 
