@@ -5,9 +5,6 @@
     font-family: "Bungee Shade";
     color: #d50ef4;
 }
-body{
-    /* background-image: radial-gradient(circle, #f903ce, #f524cb, #f234c7, #ee3fc4, #ea49c1, #e347bb, #dc46b6, #d544b0, #c938a6, #bd2b9c, #b11c93, #a50489); */
-}
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
