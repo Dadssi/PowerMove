@@ -3,16 +3,43 @@ include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
+        // Préparer les requêtes pour insérer un membre et une réservation
         $stmt = $pdo->prepare("INSERT INTO membres (nom, prenom, email, telephone) VALUES (?, ?, ?, ?)");
-        
+        $insertActivity = $pdo->prepare("INSERT INTO reservations (id_membre, id_activite) VALUES (?, ?)");
+
+        // Exécuter l'insertion du membre
         $stmt->execute([
             $_POST['nom'],
             $_POST['prenom'],
             $_POST['email'],
-            $_POST['telephone'],
-            // $_POST['activite_id']
+            $_POST['telephone']
         ]);
-        
+
+        // Récupérer l'ID du dernier membre inséré
+        $stmt_member = $pdo->prepare("SELECT MAX(id_membre) AS max_id FROM membres");
+        $stmt_member->execute();
+        $result = $stmt_member->fetch(PDO::FETCH_ASSOC);
+
+        $id_membre = $result['max_id'];
+
+        // Récupérer l'ID de l'activité à partir de son nom
+        $nom_activite = $_POST['id_activite'];
+
+        $stmt_activite = $pdo->prepare("SELECT id_activite FROM activites WHERE nom_activite = ?");
+        $stmt_activite->execute([$nom_activite]);
+        $result_1 = $stmt_activite->fetch(PDO::FETCH_ASSOC);
+
+        $id_activite = $result_1['id_activite'];
+
+        // Insérer la réservation
+        $insertActivity->execute([
+            $id_membre,
+            $id_activite
+        ]);
+
+
+
+
         header("Location: index.php?success=1");
         exit();
     } catch (PDOException $e) {

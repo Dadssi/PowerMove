@@ -173,7 +173,7 @@ try {
                 </div>
                 <div class="mb-4">
                     <select name="activite_id" class="w-full border-purple-300 focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
-                        <option value="">Veuillez choisir une activité</option>
+                        <!-- <option value="">Veuillez choisir une activité</option> -->
                         <?php foreach ($activites as $activite): ?>
                             <option value="<?= htmlspecialchars($activite['id_activite']) ?>"><?= htmlspecialchars($activite['nom_activite']) ?></option>
                         <?php endforeach; ?>
