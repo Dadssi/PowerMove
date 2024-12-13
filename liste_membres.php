@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 
-// Récupération des activités depuis la base de données
 try {
     $stmt = $pdo->query("SELECT * FROM membres");
     $membres = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -14,7 +13,6 @@ try {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Vos balises head actuelles restent identiques -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,12 +30,11 @@ try {
                 <li><a href="index.php" class="hover:text-blue-300">Accueil</a></li>
                 <li><a href="index.php#services" class="hover:text-blue-300">Activités</a></li>
                 <li><a href="index.php#about" class="hover:text-blue-300">À propos</a></li>
-                <li><a href="index.php#reservation" class="hover:text-blue-300">Réservation</a></li>
-                <li><a href="liste_membres.php" class="hover:text-blue-300">Membres</a></li>
+                <li><a href="reservations.php" class="hover:text-blue-300">Réservations</a></li>
+                <li><a href="#" class="hover:text-blue-300">Membres</a></li>
             </ul>
             <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">☰</button>
         </nav>
-        <!-- Menu mobile reste identique avec l'ajout du lien Membres -->
         <div id="mobileMenu" class="hidden bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl text-white slide-down md:hidden">
             <ul class="space-y-4 text-center p-4">
                 <li><a href="#home" class="block hover:bg-purple-900">Accueil</a></li>
@@ -48,12 +45,8 @@ try {
             </ul>
         </div>
     </header>
-    <!-- ------------------------------------------ -->
-    
-    <!-- ------------------------------------------ -->
-    
-    <!-- ------------------------------------------ -->
-    <div class="overflow-x-auto p-4 bg-white rounded-lg shadow-md">
+    <!-- ------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="overflow-x-auto p-4 bg-white rounded-lg shadow-md mb-52">
     <table class="table-auto w-full border-collapse border border-gray-200">
         <thead class="bg-purple-700 text-white">
             <tr>
@@ -86,9 +79,10 @@ try {
         </tbody>
     </table>
 </div>
-
-    <!-- ------------------------------------------ -->
-    
-    <!-- ------------------------------------------ -->
+<footer class="bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl py-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2024 PowerMove. Tous droits réservés.</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
     font-family: "Bungee Shade";
     color: #d50ef4;
 }
-@keyframes slideDown {
+/* @keyframes slideDown {
     from {
         transform: translateY(-100%);
     }
@@ -17,4 +17,4 @@
 
 .slide-down {
     animation: slideDown 0.5s ease-out;
-}
+} */

@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 
-// Récupération des activités depuis la base de données
 try {
     $stmt = $pdo->query("SELECT * FROM activites");
     $activites = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -14,7 +13,6 @@ try {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Vos balises head actuelles restent identiques -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,13 +30,11 @@ try {
             <ul class="hidden md:flex space-x-6 text-lg">
                 <li><a href="#home" class="hover:text-blue-300">Accueil</a></li>
                 <li><a href="#services" class="hover:text-blue-300">Activités</a></li>
-                <li><a href="#about" class="hover:text-blue-300">À propos</a></li>
-                <li><a href="#reservation" class="hover:text-blue-300">Réservation</a></li>
+                <li><a href="reservations.php" class="hover:text-blue-300">Réservations</a></li>
                 <li><a href="liste_membres.php" class="hover:text-blue-300">Membres</a></li>
             </ul>
             <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">☰</button>
         </nav>
-        <!-- Menu mobile reste identique avec l'ajout du lien Membres -->
         <div id="mobileMenu" class="hidden bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl text-white slide-down md:hidden">
             <ul class="space-y-4 text-center p-4">
                 <li><a href="#home" class="block hover:bg-purple-900">Accueil</a></li>
@@ -62,8 +58,6 @@ try {
         </div>
     </section>
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
-
-
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-8 text-purple-900">Nos Activités</h2>
@@ -84,66 +78,6 @@ try {
         </div>
     </section>
     <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
-    <div class="space-y-8 md:w-1/2 md:mx-auto">
-        <div id="activite-yoga" class="hidden md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
-          <h2 class="text-2xl text-white py-4 font-bold bg-purple-700 mb-6 text-center rounded">Séance de YOGA (Collectif)</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <div class="space-y-4">
-              <p><strong>Nom de l'activité :</strong> Yoga pour débutants</p>
-              <p><strong>Description de l'activité :</strong> Une séance relaxante pour améliorer votre bien-être.</p>
-              <p><strong>Capacité de l'activité :</strong> 20 participants</p>
-              <p><strong>Date de début :</strong> 15 juin 2024</p>
-              <p><strong>Date de fin :</strong> 15 juin 2024</p>
-              <p><strong>Disponibilité :</strong> Places disponibles</p>
-              <a href="#reservation" class="inline-block bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-purple-600 transition">
-                Réserver une place
-              </a>
-            </div>
-            <div class="">
-              <img src="assets/imgs/yoga.png" alt="Description de l'activité" class="rounded-lg shadow-lg">
-            </div>
-          </div>
-        </div>
-        <div id="activite-workout" class="hidden md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
-          <h2 class="text-2xl text-white py-4 font-bold bg-purple-700 mb-6 text-center rounded">Séance d'entrainnement de forces (Collectif)</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <div class="space-y-4">
-              <p><strong>Nom de l'activité :</strong> Cours de danse</p>
-              <p><strong>Description de l'activité :</strong> Découvrez les bases de la danse contemporaine.</p>
-              <p><strong>Capacité de l'activité :</strong> 15 participants</p>
-              <p><strong>Date de début :</strong> 20 juin 2024</p>
-              <p><strong>Date de fin :</strong> 20 juin 2024</p>
-              <p><strong>Disponibilité :</strong> Places limitées</p>
-              <a href="#reservation" class="inline-block bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-purple-600 transition">
-                Réserver une place
-              </a>
-            </div>
-            <div>
-              <img src="assets/imgs/workout.png" alt="Description de l'activité" class="rounded-lg shadow-lg">
-            </div>
-          </div>
-        </div>
-        <div id="activite-cardio" class="hidden md:border md:border-purple-900 relative p-6 shadow-lg rounded-lg bg-white">
-          <h2 class="text-2xl text-white py-4 font-bold bg-purple-700 mb-6 text-center rounded">Séance de Cardio (Collectif)</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <div class="space-y-4">
-              <p><strong>Nom de l'activité :</strong> Activité de Cardio</p>
-              <p><strong>Description de l'activité :</strong> Restez en forme avec les séances de Cardio adaptées à tous les niveaux.</p>
-              <p><strong>Capacité de l'activité :</strong> 10 participants</p>
-              <p><strong>Date de début :</strong> 25 juin 2024</p>
-              <p><strong>Date de fin :</strong> 25 juin 2024</p>
-              <p><strong>Disponibilité :</strong> Places disponibles</p>
-              <a href="#reservation" class="inline-block bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-purple-600 transition">
-                Réserver une place
-              </a>
-            </div>
-            <div>
-              <img src="assets/imgs/cardio.png" alt="Description de l'activité" class="rounded-lg shadow-lg">
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
     <section id="reservation" class="py-16 bg-purple-200">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-8 text-purple-900">Réservez une activité</h2>
@@ -152,12 +86,12 @@ try {
                     Inscription réussie !
                 </div>
             <?php endif; ?>
-
             <?php if (isset($_GET['error'])): ?>
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                     Une erreur est survenue lors de l'inscription.
                 </div>
             <?php endif; ?>
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
             <form class="max-w-xl mx-auto" action="process_membres.php" method="post">
                 <div class="mb-4">
                     <input type="text" name="nom" placeholder="Nom" class="w-full border-purple-300 focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
@@ -172,8 +106,8 @@ try {
                     <input type="tel" name="telephone" placeholder="N° de téléphone" pattern="[0-9]*" class="w-full border-purple-300 focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
                 </div>
                 <div class="mb-4">
-                    <select name="activite_id" class="w-full border-purple-300 focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
-                        <!-- <option value="">Veuillez choisir une activité</option> -->
+                    <select name="id_activite" class="w-full border-purple-300 focus:border-purple-900 focus:ring focus:ring-purple-900 rounded p-3" required>
+                        <option value="">Veuillez choisir une activité</option>
                         <?php foreach ($activites as $activite): ?>
                             <option value="<?= htmlspecialchars($activite['id_activite']) ?>"><?= htmlspecialchars($activite['nom_activite']) ?></option>
                         <?php endforeach; ?>

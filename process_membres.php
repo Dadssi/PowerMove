@@ -1,13 +1,13 @@
 <?php
+include 'reservations.php';
 include 'db_connection.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
-        // Préparer les requêtes pour insérer un membre et une réservation
-        $stmt = $pdo->prepare("INSERT INTO membres (nom, prenom, email, telephone) VALUES (?, ?, ?, ?)");
-        $insertActivity = $pdo->prepare("INSERT INTO reservations (id_membre, id_activite) VALUES (?, ?)");
+        $pdo->beginTransaction();
 
-        // Exécuter l'insertion du membre
+        $stmt = $pdo->prepare("INSERT INTO membres (nom, prenom, email, telephone) VALUES (?, ?, ?, ?)");
         $stmt->execute([
             $_POST['nom'],
             $_POST['prenom'],
@@ -15,75 +15,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_POST['telephone']
         ]);
 
-        // Récupérer l'ID du dernier membre inséré
-        $stmt_member = $pdo->prepare("SELECT MAX(id_membre) AS max_id FROM membres");
-        $stmt_member->execute();
-        $result = $stmt_member->fetch(PDO::FETCH_ASSOC);
+        $id_membre = $pdo->lastInsertId();
 
-        $id_membre = $result['max_id'];
+        if (isset($_POST['id_activite']) && !empty($_POST['id_activite'])) {
+            $id_activite = $_POST['id_activite'];
+        } else {
+            throw new Exception("ID de l'activité manquant ou invalidee.");
+        }
 
-        // Récupérer l'ID de l'activité à partir de son nom
-        $nom_activite = $_POST['id_activite'];
-
-        $stmt_activite = $pdo->prepare("SELECT id_activite FROM activites WHERE nom_activite = ?");
-        $stmt_activite->execute([$nom_activite]);
-        $result_1 = $stmt_activite->fetch(PDO::FETCH_ASSOC);
-
-        $id_activite = $result_1['id_activite'];
-
-        // Insérer la réservation
+        $insertActivity = $pdo->prepare("INSERT INTO reservations (id_membre, id_activite, date_reservation, statut) VALUES (?, ?, NOW(), ?)");
         $insertActivity->execute([
             $id_membre,
-            $id_activite
+            $id_activite,
+            'Confirmée'
         ]);
 
+        $pdo->commit(); // ==> valider l'operation si non voir rollback
 
+        $messageSucces = "Votre réservation a été confirmée.";
+        echo "<script type='text/javascript'>
+        alert('$messageSucces');
+        </script>";
 
-
-        header("Location: index.php?success=1");
         exit();
-    } catch (PDOException $e) {
-        header("Location: index.php?error=1");
+    } catch (Exception $e) {
+        $pdo->rollBack(); //==> en cas d'echec
+        echo "Erreur lors de l'insertion : " . $e->getMessage();
         exit();
     }
 }
-// ?>
 
-<?php
-// include 'db_connection.php';
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // Vérifiez que tous les champs requis sont fournis
-//     if (
-//         !empty($_POST['nom']) &&
-//         !empty($_POST['prenom']) &&
-//         !empty($_POST['email']) &&
-//         !empty($_POST['telephone']) &&
-//         !empty($_POST['activite_id'])
-//     ) {
-//         try {
-//             $stmt = $pdo->prepare("INSERT INTO membres (nom, prenom, email, telephone, activite_id) VALUES (?, ?, ?, ?, ?)");
-            
-//             $stmt->execute([
-//                 htmlspecialchars($_POST['nom']),
-//                 htmlspecialchars($_POST['prenom']),
-//                 htmlspecialchars($_POST['email']),
-//                 htmlspecialchars($_POST['telephone']),
-//                 htmlspecialchars($_POST['activite_id'])
-//             ]);
-            
-//             header("Location: index.php?success=1");
-//             exit();
-//         } catch (PDOException $e) {
-//             // Debug : Afficher le message d'erreur pour comprendre le problème
-//             error_log("Erreur PDO : " . $e->getMessage());
-//             header("Location: index.php?error=1");
-//             exit();
-//         }
-//     } else {
-//         // Si des champs sont manquants
-//         header("Location: index.php?error=1");
-//         exit();
-//     }
-// }
+try {
+    $stmt = $pdo->prepare(" 
+        SELECT 
+            reservations.id_reservation, 
+            reservations.id_membre, 
+            activites.nom_activite, 
+            reservations.date_reservation, 
+            reservations.statut
+        FROM reservations
+        JOIN activites ON reservations.id_activite = activites.id_activite
+    ");
+    $stmt->execute();
+    $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+    exit();
+}
 ?>
+
