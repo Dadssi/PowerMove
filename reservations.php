@@ -28,7 +28,7 @@ try {
             <a href="index.php" class="text-2xl font-bold">PowerMove</a>
             <ul class="hidden md:flex space-x-6 text-lg">
                 <li><a href="index.php" class="hover:text-blue-300">Accueil</a></li>
-                <li><a href="index.php#services" class="hover:text-blue-300">Activités</a></li>
+                <li><a href="index.php#all-activities" class="hover:text-blue-300">Activités</a></li>
                 <li><a href="#" class="hover:text-blue-300">Réservation</a></li>
                 <li><a href="liste_membres.php" class="hover:text-blue-300">Membres</a></li>
             </ul>
@@ -36,10 +36,9 @@ try {
         </nav>
         <div id="mobileMenu" class="hidden bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl text-white slide-down md:hidden">
             <ul class="space-y-4 text-center p-4">
-                <li><a href="#home" class="block hover:bg-purple-900">Accueil</a></li>
-                <li><a href="#services" class="block hover:bg-purple-900">Activités</a></li>
-                <li><a href="#about" class="block hover:bg-purple-900">À propos</a></li>
-                <li><a href="#contact" class="block hover:bg-purple-900">Réservations</a></li>
+                <li><a href="index.php" class="block hover:bg-purple-900">Accueil</a></li>
+                <li><a href="index.php#all-activities" class="block hover:bg-purple-900">Activités</a></li>
+                <li><a href="reservations.php" class="block hover:bg-purple-900">Réservations</a></li>
                 <li><a href="liste_membres.php" class="block hover:bg-purple-900">Membres</a></li>
             </ul>
         </div>
@@ -84,5 +83,18 @@ try {
             <p>&copy; 2024 PowerMove. Tous droits réservés.</p>
         </div>
     </footer>
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.getElementById('telephone').addEventListener('keypress', function (e) {
+            const char = String.fromCharCode(e.keyCode);
+                if (!/[0-9]/.test(char)) {
+            e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>

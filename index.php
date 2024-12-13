@@ -28,8 +28,8 @@ try {
         <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold">PowerMove</a>
             <ul class="hidden md:flex space-x-6 text-lg">
-                <li><a href="#home" class="hover:text-blue-300">Accueil</a></li>
-                <li><a href="#services" class="hover:text-blue-300">Activités</a></li>
+                <li><a href="index.php" class="hover:text-blue-300">Accueil</a></li>
+                <li><a href="#all-activities" class="hover:text-blue-300">Activités</a></li>
                 <li><a href="reservations.php" class="hover:text-blue-300">Réservations</a></li>
                 <li><a href="liste_membres.php" class="hover:text-blue-300">Membres</a></li>
             </ul>
@@ -37,10 +37,9 @@ try {
         </nav>
         <div id="mobileMenu" class="hidden bg-gradient-to-r from-purple-900 via-purple-500 to-purple-900 text-white shadow-2xl text-white slide-down md:hidden">
             <ul class="space-y-4 text-center p-4">
-                <li><a href="#home" class="block hover:bg-purple-900">Accueil</a></li>
-                <li><a href="#services" class="block hover:bg-purple-900">Activités</a></li>
-                <li><a href="#about" class="block hover:bg-purple-900">À propos</a></li>
-                <li><a href="#contact" class="block hover:bg-purple-900">Réservation</a></li>
+                <li><a href="index.php" class="block hover:bg-purple-900">Accueil</a></li>
+                <li><a href="#all-activities" class="block hover:bg-purple-900">Activités</a></li>
+                <li><a href="reservations.php" class="block hover:bg-purple-900">Réservations</a></li>
                 <li><a href="liste_membres.php" class="block hover:bg-purple-900">Membres</a></li>
             </ul>
         </div>
@@ -58,7 +57,7 @@ try {
         </div>
     </section>
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
-    <section id="services" class="py-16 bg-white">
+    <section id="all-activities" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-8 text-purple-900">Nos Activités</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -113,7 +112,7 @@ try {
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded">Envoyer</button>
+                <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded">S'inscrire</button>
             </form>
         </div>
     </section>
@@ -125,6 +124,18 @@ try {
     </footer>
     
 
-    <script src="assets/js/script.js"></script>
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.getElementById('telephone').addEventListener('keypress', function (e) {
+            const char = String.fromCharCode(e.keyCode);
+                if (!/[0-9]/.test(char)) {
+            e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
