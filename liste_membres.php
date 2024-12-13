@@ -83,34 +83,6 @@ try {
                 </td>
             </tr>
         <?php endforeach; ?>
-            <tr class="odd:bg-purple-50 even:bg-purple-100 hover:bg-purple-200">
-                <td class="px-4 py-2 border border-gray-300">2</td>
-                <td class="px-4 py-2 border border-gray-300">Smith</td>
-                <td class="px-4 py-2 border border-gray-300">Jane</td>
-                <td class="px-4 py-2 border border-gray-300">jane.smith@example.com</td>
-                <td class="px-4 py-2 border border-gray-300">123456789</td>
-                <td class="px-4 py-2 border border-gray-300">2024-02-15</td>
-                <td class="px-4 py-2 border border-gray-300">
-                    <div class="flex gap-2">
-                        <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">Modifier</button>
-                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Supprimer</button>
-                    </div>
-                </td>
-            </tr>
-            <tr class="odd:bg-purple-50 even:bg-purple-100 hover:bg-purple-200">
-                <td class="px-4 py-2 border border-gray-300">3</td>
-                <td class="px-4 py-2 border border-gray-300">Leroy</td>
-                <td class="px-4 py-2 border border-gray-300">Paul</td>
-                <td class="px-4 py-2 border border-gray-300">paul.leroy@example.com</td>
-                <td class="px-4 py-2 border border-gray-300">123456789</td>
-                <td class="px-4 py-2 border border-gray-300">2024-03-20</td>
-                <td class="px-4 py-2 border border-gray-300">
-                    <div class="flex gap-2">
-                        <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">Modifier</button>
-                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Supprimer</button>
-                    </div>
-                </td>
-            </tr>
         </tbody>
     </table>
 </div>

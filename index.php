@@ -50,20 +50,6 @@ try {
         </div>
     </header>
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ----------------------------------------------------------------------------------------------------------------- -->
     <section id="home" class="bg-cover bg-center h-screen flex items-center justify-center"
         style="background-image: url('https://img.freepik.com/photos-premium/salle-gym-lumiere-mur-tapis-roulant_808092-1997.jpg?w=1060');">
         <div class="w-full text-center items-center">
@@ -77,7 +63,6 @@ try {
     </section>
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
 
-    <!-- Les sections home et about restent identiques -->
 
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">

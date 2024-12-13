@@ -4,19 +4,13 @@ include 'db_connection.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $stmt = $pdo->prepare("INSERT INTO membres (nom, prenom, email, telephone) VALUES (?, ?, ?, ?)");
-        $stmt = $pdo->prepare("INSERT INTO membres (nom, prenom, email, telephone) VALUES (?, ?, ?, ?)");
         
         $stmt->execute([
             $_POST['nom'],
             $_POST['prenom'],
             $_POST['email'],
             $_POST['telephone'],
-        ]);
-        $stmt->execute([
-            $_POST['nom'],
-            $_POST['prenom'],
-            $_POST['email'],
-            $_POST['telephone'],
+            // $_POST['activite_id']
         ]);
         
         header("Location: index.php?success=1");
