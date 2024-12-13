@@ -175,4 +175,4 @@ Pour contribuer au projet :
 5. Créez une Pull Request
 
 ## 📄 Licence
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+Il n'y a pas de Licence pour ce site :)
